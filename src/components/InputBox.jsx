@@ -1,24 +1,17 @@
-import { useId, useState } from 'react';
+import { useId } from 'react';
 import PropTypes from 'prop-types';
 
 function InputBox({
+  amount,
+  onAmountChange,
   firstLabel,
   secondLabel,
   amountDisabled,
   min,
   currencyOptions,
+  selectedCurrency,
+  onCurrencyChange,
 }) {
-  const [amount, setAmount] = useState(0);
-  const [selectedCurrency, setSelectedCurrency] = useState('eur');
-
-  const onAmountChange = ({ target: { value } }) => {
-    setAmount(value);
-  };
-
-  const onCurrencyChange = ({ target: { value } }) => {
-    setSelectedCurrency(value);
-  };
-
   // field ids
   const amountId = useId();
   const currencyId = useId();
@@ -70,17 +63,20 @@ function InputBox({
 }
 
 InputBox.propTypes = {
+  amount: PropTypes.number.isRequired,
+  onAmountChange: PropTypes.func.isRequired,
   firstLabel: PropTypes.string.isRequired,
   secondLabel: PropTypes.string.isRequired,
   amountDisabled: PropTypes.bool,
   min: PropTypes.number,
-  currencyOptions: PropTypes.arrayOf(PropTypes.string),
+  currencyOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedCurrency: PropTypes.string.isRequired,
+  onCurrencyChange: PropTypes.func.isRequired,
 };
 
 InputBox.defaultProps = {
   amountDisabled: false,
   min: 0,
-  currencyOptions: ['eur', 'mad', 'usd'],
 };
 
 export default InputBox;
