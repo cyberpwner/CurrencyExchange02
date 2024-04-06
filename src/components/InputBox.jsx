@@ -28,7 +28,7 @@ function InputBox({
             type="number"
             name="amount"
             id={`amount${amountId}`}
-            value={amount}
+            value={amount.toFixed(2)}
             onChange={onAmountChange}
             disabled={amountDisabled}
             min={min}
