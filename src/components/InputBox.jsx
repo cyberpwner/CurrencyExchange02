@@ -27,14 +27,14 @@ function InputBox({
     <section className="bg-white p-4 grid grid-cols-2 gap-6 w-full rounded-lg">
       <section className="w-full">
         <label
-          htmlFor={amountId}
+          htmlFor={`amount${amountId}`}
           className="grid grid-col-1 gap-0.5 w-full text-black/40 text-sm"
         >
           {firstLabel}
           <input
             type="number"
             name="amount"
-            id={amountId}
+            id={`amount${amountId}`}
             value={amount}
             onChange={onAmountChange}
             disabled={amountDisabled}
@@ -46,14 +46,14 @@ function InputBox({
 
       <section className="w-full">
         <label
-          htmlFor={currencyId}
+          htmlFor={`currency${currencyId}`}
           className="grid grid-col-1 gap-0.5 place-items-end w-full text-black/40  text-sm"
         >
           {secondLabel}
           <select
             className="px-3 py-2 rounded-md w-full text-black/85 cursor-pointer bg-gray-100 border focus:border-slate-400"
             name="currency"
-            id={currencyId}
+            id={`currency${currencyId}`}
             value={selectedCurrency}
             onChange={onCurrencyChange}
           >
